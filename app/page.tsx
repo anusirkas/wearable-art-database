@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { supabase } from "@/lib/supabase"
+import Link from "next/link"
 
 export default function Home() {
   const [artworks, setArtworks] = useState<any[]>([])
@@ -10,11 +11,17 @@ export default function Home() {
   useEffect(() => {
     async function fetchArtworks() {
       const { data, error } = await supabase
-        .from("artworks")
-        .select("*")
+        .from("teos")
+        .select(`
+          id,
+          pealkiri,
+          aasta,
+          kunstnik:kunstnik_id (nimi),
+          meedia (faili_url)
+        `)
 
       if (error) {
-        console.error("Supabase error:", error)
+        console.error(error)
       } else {
         setArtworks(data || [])
       }
@@ -34,60 +41,50 @@ export default function Home() {
           Wearable Art Archive
         </h1>
         <p className="text-gray-600 mt-2">
-          Digital collection of wearable art pieces stored in Supabase.
+          Digital collection of wearable art.
         </p>
       </div>
 
       {/* LOADING */}
-      {loading && (
-        <p className="text-center text-gray-500">
-          Loading artworks...
-        </p>
-      )}
-
-      {/* EMPTY STATE */}
-      {!loading && artworks.length === 0 && (
-        <p className="text-center text-gray-500">
-          No artworks found in database.
-        </p>
-      )}
+      {loading && <p className="text-center">Loading...</p>}
 
       {/* GRID */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         {artworks.map((art) => (
-          <div
-            key={art.id}
-            className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition"
-          >
+          <Link key={art.id} href={`/teos/${art.id}`}>
+            
+            <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition cursor-pointer">
 
-            {/* IMAGE */}
-            {art.image_url && (
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={art.image_url}
-                  alt={art.title}
-                  className="w-full h-full object-cover hover:scale-105 transition duration-300"
-                />
+              {/* IMAGE */}
+              {art.meedia?.[0]?.faili_url && (
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={art.meedia[0].faili_url}
+                    alt={art.pealkiri}
+                    className="w-full h-full object-cover hover:scale-105 transition duration-300"
+                  />
+                </div>
+              )}
+
+              {/* CONTENT */}
+              <div className="p-4">
+                <h2 className="text-xl font-semibold">
+                  {art.pealkiri}
+                </h2>
+
+                <p className="text-gray-600">
+                  {art.kunstnik?.nimi}
+                </p>
+
+                <p className="text-sm text-gray-500">
+                  {art.aasta}
+                </p>
               </div>
-            )}
 
-            {/* CONTENT */}
-            <div className="p-4">
-              <h2 className="text-xl font-semibold text-gray-900">
-                {art.title}
-              </h2>
-
-              <p className="text-gray-600 mt-1">
-                Artist: {art.artist}
-              </p>
-
-              <p className="text-gray-500 text-sm mt-1">
-                Year: {art.year}
-              </p>
             </div>
 
-          </div>
+          </Link>
         ))}
 
       </div>
