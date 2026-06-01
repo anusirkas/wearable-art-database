@@ -56,6 +56,23 @@ The model is general enough to extend beyond textile art (e.g. jewelry, fashion 
 
 ---
 
+## 🗺️ Database Design
+
+The system is built around a relational model for wearable art documentation.
+
+![ERD Diagram](wearable-art-erd.png)
+
+The diagram shows relationships between:
+
+- artworks
+- artists
+- materials & techniques
+- creation stages
+- transactions & commissions
+- exhibitions and media assets
+
+---
+
 ## 📌 Status
 
 > Database design: ✔️ Completed  
