@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧵 Wearable Art Database (WIP)
 
-## Getting Started
+> Relational database system for documenting wearable art pieces, creative processes, materials, and ownership history.
 
-First, run the development server:
+⚠️ **Work in Progress** – core database design is implemented, but the full application layer and features are still under development.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ About the Project
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Wearable art sits between fashion and art — unique, handcrafted pieces that require detailed documentation of their creation process, materials, and provenance.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project aims to build a **structured and transparent database system** for managing wearable art as a complete lifecycle: from creation to exhibition and transactions.
 
-## Learn More
+It is not a traditional e-commerce platform, but a **creative archive system for artists, collectors, and researchers**.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 Goal
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The system is designed to:
 
-## Deploy on Vercel
+- Document wearable art pieces and their creation process
+- Track materials, techniques, and authorship
+- Manage commissions and ethical transaction flows
+- Support ownership and trust transparency over time
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The model is general enough to extend beyond textile art (e.g. jewelry, fashion design, and other wearable forms).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🧱 Current Progress
+
+✔️ Completed:
+
+- ER diagram (database structure design)
+- Relational schema (tables & relationships)
+- SQL scripts for creation and sample data
+- Basic SELECT queries for data exploration
+
+🚧 In progress:
+
+- Full PostgreSQL integration
+- Expanding ownership and transaction logic
+- Application layer development
+- UI / frontend prototype (early stage)
+
+---
+
+## 🗄️ Tech Stack
+
+- PostgreSQL
+- SQL (schema + queries)
+- ERD design
+- (planned) Full-stack application layer
+
+---
+
+## 📌 Status
+
+> Database design: ✔️ Completed  
+> Backend system: 🚧 In progress  
+> Frontend: 🚧 Planned  
+> Production-ready: ❌ Not yet
+
+---
+
+## 💡 Vision
+
+A long-term system for **transparent, ethical, and structured documentation of wearable art**, supporting artists in preserving creative and material authenticity.
