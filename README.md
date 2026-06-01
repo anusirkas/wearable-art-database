@@ -60,7 +60,7 @@ The model is general enough to extend beyond textile art (e.g. jewelry, fashion 
 
 The system is built around a relational model for wearable art documentation.
 
-![ERD Diagram](wearable-art-erd.png)
+![ERD Diagram](public/wearable-art-erd.png)
 
 The diagram shows relationships between:
 
