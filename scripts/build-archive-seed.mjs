@@ -4,8 +4,9 @@ import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 
-// Not wearable (dish rings) or the second half of a pair already included.
-const EXCLUDE = new Set([642825, 189235, 189052]);
+// Not wearable (dish rings), the second half of a pair, or Tostrup pieces that share one
+// photograph of the whole set (only the necklace is kept).
+const EXCLUDE = new Set([642825, 189235, 189052, 189053, 189051, 189049, 189050]);
 const candidates = JSON.parse(await readFile("data/met-candidates.json", "utf8")).filter((o) => !EXCLUDE.has(o.objectID));
 const IMAGE_DIR = "public/images/archive";
 await mkdir(IMAGE_DIR, { recursive: true });

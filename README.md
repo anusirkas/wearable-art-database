@@ -6,10 +6,11 @@ It started as a database course project at TalTech (ICA0005, designed in Oracle)
 
 ## What it does
 
+- **A home page laid out like a museum visit**: a full-screen entrance, then rooms that slide over each other (the archive, a horizontally scrolling contemporary room, materials and sustainability, studios), each piece with a museum-style wall label.
 - **Search everything at once.** Titles, makers, types, materials, techniques and descriptions are combined into one weighted full-text document per piece. Search uses both a plain and an English dictionary, so "dresses" finds "dress", and falls back to trigram similarity, so typos still match.
 - **Filter** by category, type, material, technique, or "sustainable materials only".
 - **Artwork pages** show materials with their origin and a sustainability flag, techniques in order, creation stages with hours, exhibitions, reviews, and the image credit.
-- **Artists**: contemporary studio profiles (demo data from the course project) with endorsements, reviews and a trust score, next to the historic makers from the museum archive.
+- **Artists**: commissionable demo studios with endorsements, reviews and a trust score, contemporary designers, and the historic makers from the museum archive.
 - **Types**: a fixed set of standard types, plus types added by artists that always sit under a standard type so filters keep working. Visitors can suggest a new type.
 - **Commissions**: a request form on studio profiles, built around the idea of ordering one lasting piece from a person rather than a factory.
 
@@ -17,8 +18,13 @@ Public forms only write to a `submission` review queue (honeypot, 5 per hour per
 
 ## Data
 
-- **Archive pieces**: The Metropolitan Museum of Art [Open Access](https://www.metmuseum.org/about-the-met/policies-and-documents/open-access) (CC0), collected with `scripts/harvest-met.mjs`. Images are resized to WebP and served from `public/images/archive`. Each piece links back to its museum record.
-- **Studio profiles, commissions, transactions and trust scores**: the example data from the course project, translated and corrected. They are marked as demo profiles on the site.
+Three collections, each credited on every piece:
+
+- **Museum archive** (48 pieces, 1750–1910 plus three pre-Columbian ornaments): The Metropolitan Museum of Art [Open Access](https://www.metmuseum.org/about-the-met/policies-and-documents/open-access), CC0. Collected with `scripts/harvest-met.mjs`, one request a second.
+- **Contemporary designers** (31 pieces by 16 designers, among them Iris van Herpen, Guo Pei, Alexander McQueen, Rei Kawakubo, Issey Miyake and Hussein Chalayan): museum and exhibition photographs from Wikimedia Commons under CC BY, CC BY-SA or CC0, hand-picked from `data/commons-candidates.json`. Facts come from the file descriptions and the exhibiting museums (`data/contemporary.json`).
+- **Studios** (6 fictional studios, 19 pieces): demo profiles that show the commissioning and trust features, with illustrative Unsplash photography credited to the photographer (`data/studios.json`). Their commissions, transactions, reviews and trust scores are the course project's example data, moved onto the new studios.
+
+Images are resized to WebP (max 1400 px) and served from `public/images`.
 
 ## The schema
 
@@ -68,8 +74,8 @@ Next.js 16 (App Router, Server Components, Server Actions) · TypeScript · Post
 ```bash
 npm install
 # .env.local: DATABASE_URL=postgresql://…
-node scripts/db.mjs db/schema.sql db/seed-reference.sql db/seed-studio.sql db/seed-archive.sql
+node scripts/db.mjs db/schema.sql db/seed-reference.sql db/seed-archive.sql db/seed-contemporary.sql db/seed-studios.sql db/seed-records.sql
 npm run dev
 ```
 
-To rebuild the archive data: `node scripts/harvest-met.mjs` (slow on purpose, about one request a second) then `node scripts/build-archive-seed.mjs`.
+To rebuild the data: `node scripts/harvest-met.mjs` then `node scripts/build-archive-seed.mjs` for the museum archive, and `node scripts/build-modern-seed.mjs` for the contemporary designers and studios (both download and resize their images).

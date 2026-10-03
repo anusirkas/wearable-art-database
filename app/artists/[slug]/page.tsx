@@ -15,7 +15,8 @@ export default async function ArtistPage({ params }: PageProps<"/artists/[slug]"
   const { slug } = await params;
   const [artist, works] = await Promise.all([getArtist(slug), getArtistWorks(slug)]);
   if (!artist) notFound();
-  const isArchive = artist.status === "archive";
+  // museum and contemporary designers are documented, not commissioned through the archive
+  const isArchive = artist.status === "archive" || artist.status === "contemporary";
 
   return (
     <article className="artist">
@@ -24,10 +25,10 @@ export default async function ArtistPage({ params }: PageProps<"/artists/[slug]"
       </Link>
 
       <header className="artist-head">
-        <p className="eyebrow">{isArchive ? "Museum archive" : `${artist.status} studio`}</p>
+        <p className="eyebrow">{artist.status === "archive" ? "Museum archive" : artist.status === "contemporary" ? "Contemporary designer" : `${artist.status} studio`}</p>
         <h1>{artist.name}</h1>
         <p className="muted">{artist.life_dates ?? countryName(artist.country_code)}</p>
-        {artist.is_demo && <p className="demo-flag">Demo profile from the original course project</p>}
+        {artist.is_demo && <p className="demo-flag">Demo studio · fictional name, illustrative photography</p>}
         {artist.bio && <p className="lead">{artist.bio}</p>}
       </header>
 

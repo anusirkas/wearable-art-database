@@ -12,25 +12,28 @@ export const metadata: Metadata = { title: "Artists" };
 const STATUS: Record<string, string> = {
   verified: "Verified studio",
   emerging: "Emerging",
-  guest: "Guest",
+  guest: "Guest studio",
+  contemporary: "Contemporary",
   archive: "Museum archive",
 };
 
 export default async function ArtistsPage() {
   const artists = await getArtists();
-  const studio = artists.filter((a) => a.status !== "archive");
+  const studio = artists.filter((a) => ["verified", "emerging", "guest"].includes(a.status));
+  const contemporary = artists.filter((a) => a.status === "contemporary");
   const archive = artists.filter((a) => a.status === "archive");
 
   return (
     <>
       <section className="intro small">
         <h1>Artists</h1>
-        <p>Contemporary studios you can commission, and the historic houses and makers in the museum archive.</p>
+        <p>Studios you can commission, designers working today, and the historic houses and makers in the museum archive.</p>
       </section>
 
       {[
-        { title: "Studios", list: studio },
-        { title: "Archive makers", list: archive },
+        { title: "Studios you can commission", list: studio },
+        { title: "Contemporary designers", list: contemporary },
+        { title: "Museum archive makers", list: archive },
       ]
         .filter((g) => g.list.length > 0)
         .map((group) => (

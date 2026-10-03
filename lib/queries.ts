@@ -9,6 +9,13 @@ export const CATEGORIES: { value: Category; label: string }[] = [
   { value: "footwear", label: "Footwear" },
 ];
 
+export type Collection = "archive" | "contemporary" | "studios";
+export const COLLECTIONS: { value: Collection; label: string; statuses: string[] }[] = [
+  { value: "archive", label: "Museum archive", statuses: ["archive"] },
+  { value: "contemporary", label: "Contemporary", statuses: ["contemporary"] },
+  { value: "studios", label: "Studios", statuses: ["verified", "emerging", "guest"] },
+];
+
 export type ArtworkCard = {
   slug: string;
   title: string;
@@ -21,10 +28,15 @@ export type ArtworkCard = {
   width: number | null;
   height: number | null;
   sustainable: boolean;
+  artist_status?: string;
+  life_dates?: string | null;
+  medium?: string | null;
+  credit_line?: string | null;
 };
 
 export type SearchFilters = {
   q?: string;
+  collection?: string;
   category?: string;
   type?: string;
   material?: string;
@@ -38,6 +50,7 @@ export type SearchFilters = {
  */
 export async function searchArtworks(f: SearchFilters): Promise<ArtworkCard[]> {
   const q = f.q?.trim() || null;
+  const statuses = COLLECTIONS.find((c) => c.value === f.collection)?.statuses ?? null;
   const rows = await db()`
     WITH input AS (
       SELECT
@@ -47,7 +60,7 @@ export async function searchArtworks(f: SearchFilters): Promise<ArtworkCard[]> {
     )
     SELECT
       a.slug, a.title, a.date_label, ar.name AS artist, ar.slug AS artist_slug,
-      t.name AS type, t.category, m.file_url AS image, m.width, m.height,
+      t.name AS type, t.category, m.file_url AS image, m.width, m.height, ar.status AS artist_status,
       EXISTS (
         SELECT 1 FROM artwork_material am JOIN material mt ON mt.id = am.material_id
         WHERE am.artwork_id = a.id AND mt.is_sustainable
@@ -65,6 +78,7 @@ export async function searchArtworks(f: SearchFilters): Promise<ArtworkCard[]> {
            OR s.document @@ input.simple_q
            OR s.document @@ input.english_q
            OR word_similarity(input.text, s.words) > 0.5)
+      AND (${statuses}::text[] IS NULL OR ar.status = ANY(${statuses}::text[]))
       AND (${f.category ?? null}::text IS NULL OR t.category = ${f.category ?? null})
       AND (${f.type ?? null}::text IS NULL OR t.name = ${f.type ?? null})
       AND (${f.material ?? null}::text IS NULL OR EXISTS (
@@ -114,9 +128,88 @@ export async function getStats() {
       (SELECT count(*) FROM artwork)::int AS artworks,
       (SELECT count(*) FROM artist)::int AS artists,
       (SELECT count(*) FROM material)::int AS materials,
-      (SELECT count(*) FROM artwork_type)::int + (SELECT count(*) FROM custom_artwork_type)::int AS types
+      (SELECT count(*) FROM artwork_type)::int + (SELECT count(*) FROM custom_artwork_type)::int AS types,
+      (SELECT coalesce(sum(hours), 0) FROM creation_stage)::int AS hours,
+      (SELECT min(year) FROM artwork)::int AS first_year
   `;
-  return row as { artworks: number; artists: number; materials: number; types: number };
+  return row as { artworks: number; artists: number; materials: number; types: number; hours: number; first_year: number };
+}
+
+const CARD_COLUMNS = `a.slug, a.title, a.date_label, ar.name AS artist, ar.slug AS artist_slug, ar.status AS artist_status,
+  ar.life_dates, t.name AS type, t.category, m.file_url AS image, m.width, m.height, false AS sustainable,
+  (SELECT string_agg(mt.name, ', ' ORDER BY mt.name) FROM artwork_material am JOIN material mt ON mt.id = am.material_id
+   WHERE am.artwork_id = a.id) AS medium, a.credit_line`;
+
+/** Pieces for the home page rooms, in the order given. */
+export async function getArtworksBySlug(slugs: string[]): Promise<ArtworkCard[]> {
+  const rows = await db().query(
+    `SELECT ${CARD_COLUMNS}
+     FROM artwork a
+     JOIN artist ar ON ar.id = a.artist_id
+     JOIN artwork_type t ON t.id = a.artwork_type_id
+     LEFT JOIN LATERAL (SELECT file_url, width, height FROM media WHERE artwork_id = a.id
+                        ORDER BY sort_order LIMIT 1) m ON true
+     WHERE a.slug = ANY($1)
+     ORDER BY array_position($1, a.slug)`,
+    [slugs],
+  );
+  return rows as ArtworkCard[];
+}
+
+/** Everything by living and recent designers, newest first, for the horizontal gallery. */
+export async function getContemporary(limit = 14): Promise<ArtworkCard[]> {
+  const rows = await db().query(
+    `SELECT DISTINCT ON (ar.id) ${CARD_COLUMNS}
+     FROM artwork a
+     JOIN artist ar ON ar.id = a.artist_id
+     JOIN artwork_type t ON t.id = a.artwork_type_id
+     JOIN LATERAL (SELECT file_url, width, height FROM media WHERE artwork_id = a.id
+                   ORDER BY sort_order LIMIT 1) m ON true
+     WHERE ar.status = 'contemporary'
+     ORDER BY ar.id, a.year DESC NULLS LAST
+     LIMIT $1`,
+    [limit],
+  );
+  return rows as ArtworkCard[];
+}
+
+export type StudioCard = { slug: string; name: string; status: string; country_code: string | null; bio: string | null; works: number; hours: number; cover: string | null; cover_w: number | null; cover_h: number | null };
+
+export async function getStudios(): Promise<StudioCard[]> {
+  const rows = await db()`
+    SELECT ar.slug, ar.name, ar.status, ar.country_code, ar.bio,
+      (SELECT count(*)::int FROM artwork WHERE artist_id = ar.id) AS works,
+      (SELECT coalesce(sum(cs.hours), 0)::int FROM creation_stage cs JOIN artwork a ON a.id = cs.artwork_id WHERE a.artist_id = ar.id) AS hours,
+      c.file_url AS cover, c.width AS cover_w, c.height AS cover_h
+    FROM artist ar
+    LEFT JOIN LATERAL (SELECT m.file_url, m.width, m.height FROM artwork a JOIN media m ON m.artwork_id = a.id
+                       WHERE a.artist_id = ar.id ORDER BY a.year DESC NULLS LAST, m.sort_order LIMIT 1) c ON true
+    WHERE ar.status IN ('verified', 'emerging', 'guest')
+    ORDER BY (ar.status = 'verified') DESC, ar.name
+  `;
+  return rows as StudioCard[];
+}
+
+/** Material counts for the sustainability room. */
+export async function getMaterialStats() {
+  const [row] = await db()`
+    SELECT
+      count(*) FILTER (WHERE m.is_sustainable)::int AS sustainable,
+      count(*) FILTER (WHERE m.is_sustainable = false)::int AS conventional,
+      count(*) FILTER (WHERE m.is_sustainable IS NULL)::int AS unknown,
+      (SELECT count(DISTINCT am2.artwork_id)::int FROM artwork_material am2 JOIN material m2 ON m2.id = am2.material_id
+       WHERE m2.is_sustainable) AS pieces_with_sustainable
+    FROM artwork_material am JOIN material m ON m.id = am.material_id
+  `;
+  const top = await db()`
+    SELECT m.name, m.notes, count(*)::int AS count
+    FROM material m JOIN artwork_material am ON am.material_id = m.id
+    WHERE m.is_sustainable GROUP BY m.id ORDER BY count DESC, m.name LIMIT 6
+  `;
+  return {
+    ...(row as { sustainable: number; conventional: number; unknown: number; pieces_with_sustainable: number }),
+    top: top as { name: string; notes: string | null; count: number }[],
+  };
 }
 
 export type ArtworkDetail = {
@@ -311,7 +404,7 @@ export async function getCourseQueries() {
         GROUP BY a.id HAVING sum(cs.hours) > 100 ORDER BY total_hours DESC`,
     sql`SELECT ar.name AS artist, a.title, t.name AS type, a.description
         FROM artist ar JOIN artwork a ON a.artist_id = ar.id JOIN artwork_type t ON t.id = a.artwork_type_id
-        WHERE ar.name = 'Anu Sirkas'`,
+        WHERE ar.name = 'Halcyon Knit Lab'`,
     sql`SELECT a.slug, a.title, ar.name AS artist, m.name AS material, am.quantity
         FROM artwork a JOIN artwork_material am ON am.artwork_id = a.id JOIN material m ON m.id = am.material_id
         JOIN artist ar ON ar.id = a.artist_id

@@ -27,7 +27,7 @@ CREATE TABLE artist (                                   -- KUNSTNIK
   slug              text NOT NULL UNIQUE,
   name              varchar(200) NOT NULL,
   status            varchar(20) NOT NULL DEFAULT 'emerging'
-                      CHECK (status IN ('verified', 'emerging', 'guest', 'archive')),
+                      CHECK (status IN ('verified', 'emerging', 'guest', 'contemporary', 'archive')),
   bio               varchar(1000),
   creative_cv       varchar(4000),
   life_dates        varchar(100),                       -- e.g. "French, 1890–1973"; archive makers only

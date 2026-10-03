@@ -222,17 +222,6 @@ INSERT INTO media (artwork_id, file_url, media_type, caption, credit, license, w
 SELECT id, '/images/archive/met-716657.webp', 'photo', 'Archaeological revival necklace, Castellani', 'The Metropolitan Museum of Art', 'CC0', 1400, 1202
 FROM artwork WHERE slug = 'archaeological-revival-necklace-castellani-716657';
 
--- Brooch (Jacob Ulrich Holfeldt Tostrup), Met 189051
-INSERT INTO artwork (slug, artist_id, artwork_type_id, title, date_label, year, description, culture, source_name, source_url, credit_line)
-SELECT 'brooch-jacob-ulrich-holfeldt-tostrup-189051', ar.id, t.id, 'Brooch', 'ca. 1873', 1868, 'Brooch in silver filigree, by Jacob Ulrich Holfeldt Tostrup (Norwegian, Sande, near Stavanger 1806–1890 Christiana (now Oslo)), dated ca. 1873. From the collection of The Metropolitan Museum of Art (European Sculpture and Decorative Arts).', NULL,
-  'The Metropolitan Museum of Art', 'https://www.metmuseum.org/art/collection/search/189051', 'Gift of Mrs. Harriette M. Arnold, 1906'
-FROM artist ar, artwork_type t WHERE ar.slug = 'jacob-ulrich-holfeldt-tostrup' AND t.name = 'Brooch';
-INSERT INTO artwork_material (artwork_id, material_id) SELECT a.id, m.id FROM artwork a, material m WHERE a.slug = 'brooch-jacob-ulrich-holfeldt-tostrup-189051' AND m.name = 'Silver';
-INSERT INTO artwork_technique (artwork_id, technique_id, step_order) SELECT a.id, te.id, 1 FROM artwork a, technique te WHERE a.slug = 'brooch-jacob-ulrich-holfeldt-tostrup-189051' AND te.name = 'Goldsmithing';
-INSERT INTO media (artwork_id, file_url, media_type, caption, credit, license, width, height)
-SELECT id, '/images/archive/met-189051.webp', 'photo', 'Brooch, Jacob Ulrich Holfeldt Tostrup', 'The Metropolitan Museum of Art', 'CC0', 1400, 1172
-FROM artwork WHERE slug = 'brooch-jacob-ulrich-holfeldt-tostrup-189051';
-
 -- Brooch (Dumoret), Met 199756
 INSERT INTO artwork (slug, artist_id, artwork_type_id, title, date_label, year, description, culture, source_name, source_url, credit_line)
 SELECT 'brooch-dumoret-199756', ar.id, t.id, 'Brooch', 'ca. 1850–70', 1845, 'Brooch in gold, diamonds, crystal, silk, by Dumoret (French), dated ca. 1850–70. From the collection of The Metropolitan Museum of Art (European Sculpture and Decorative Arts).', NULL,
@@ -323,17 +312,6 @@ INSERT INTO artwork_technique (artwork_id, technique_id, step_order) SELECT a.id
 INSERT INTO media (artwork_id, file_url, media_type, caption, credit, license, width, height)
 SELECT id, '/images/archive/met-827209.webp', 'photo', 'Bracelet, Castellani', 'The Metropolitan Museum of Art', 'CC0', 1400, 659
 FROM artwork WHERE slug = 'bracelet-castellani-827209';
-
--- Bracelet (Jacob Ulrich Holfeldt Tostrup), Met 189049
-INSERT INTO artwork (slug, artist_id, artwork_type_id, title, date_label, year, description, culture, source_name, source_url, credit_line)
-SELECT 'bracelet-jacob-ulrich-holfeldt-tostrup-189049', ar.id, t.id, 'Bracelet', 'ca. 1873', 1868, 'Bracelet in silver filigree, by Jacob Ulrich Holfeldt Tostrup (Norwegian, Sande, near Stavanger 1806–1890 Christiana (now Oslo)), dated ca. 1873. From the collection of The Metropolitan Museum of Art (European Sculpture and Decorative Arts).', NULL,
-  'The Metropolitan Museum of Art', 'https://www.metmuseum.org/art/collection/search/189049', 'Gift of Mrs. Harriette M. Arnold, 1906'
-FROM artist ar, artwork_type t WHERE ar.slug = 'jacob-ulrich-holfeldt-tostrup' AND t.name = 'Bracelet';
-INSERT INTO artwork_material (artwork_id, material_id) SELECT a.id, m.id FROM artwork a, material m WHERE a.slug = 'bracelet-jacob-ulrich-holfeldt-tostrup-189049' AND m.name = 'Silver';
-INSERT INTO artwork_technique (artwork_id, technique_id, step_order) SELECT a.id, te.id, 1 FROM artwork a, technique te WHERE a.slug = 'bracelet-jacob-ulrich-holfeldt-tostrup-189049' AND te.name = 'Goldsmithing';
-INSERT INTO media (artwork_id, file_url, media_type, caption, credit, license, width, height)
-SELECT id, '/images/archive/met-189049.webp', 'photo', 'Bracelet, Jacob Ulrich Holfeldt Tostrup', 'The Metropolitan Museum of Art', 'CC0', 1400, 1172
-FROM artwork WHERE slug = 'bracelet-jacob-ulrich-holfeldt-tostrup-189049';
 
 -- Bracelet (Castellani), Met 236768
 INSERT INTO artwork (slug, artist_id, artwork_type_id, title, date_label, year, description, culture, source_name, source_url, credit_line)
@@ -613,27 +591,6 @@ INSERT INTO artwork_technique (artwork_id, technique_id, step_order) SELECT a.id
 INSERT INTO media (artwork_id, file_url, media_type, caption, credit, license, width, height)
 SELECT id, '/images/archive/met-206855.webp', 'photo', 'Pair of earrings, B. A. (of Spain)', 'The Metropolitan Museum of Art', 'CC0', 1327, 1750
 FROM artwork WHERE slug = 'pair-of-earrings-b-a-of-spain-206855';
-
--- Earring (Jacob Ulrich Holfeldt Tostrup), Met 189053
-INSERT INTO artwork (slug, artist_id, artwork_type_id, title, date_label, year, description, culture, source_name, source_url, credit_line)
-SELECT 'earring-jacob-ulrich-holfeldt-tostrup-189053', ar.id, t.id, 'Earring', 'ca. 1873', 1868, 'Earring in silver filigree, by Jacob Ulrich Holfeldt Tostrup (Norwegian, Sande, near Stavanger 1806–1890 Christiana (now Oslo)), dated ca. 1873. From the collection of The Metropolitan Museum of Art (European Sculpture and Decorative Arts).', NULL,
-  'The Metropolitan Museum of Art', 'https://www.metmuseum.org/art/collection/search/189053', 'Gift of Mrs. Harriette M. Arnold, 1906'
-FROM artist ar, artwork_type t WHERE ar.slug = 'jacob-ulrich-holfeldt-tostrup' AND t.name = 'Earrings';
-INSERT INTO artwork_material (artwork_id, material_id) SELECT a.id, m.id FROM artwork a, material m WHERE a.slug = 'earring-jacob-ulrich-holfeldt-tostrup-189053' AND m.name = 'Silver';
-INSERT INTO artwork_technique (artwork_id, technique_id, step_order) SELECT a.id, te.id, 1 FROM artwork a, technique te WHERE a.slug = 'earring-jacob-ulrich-holfeldt-tostrup-189053' AND te.name = 'Goldsmithing';
-INSERT INTO media (artwork_id, file_url, media_type, caption, credit, license, width, height)
-SELECT id, '/images/archive/met-189053.webp', 'photo', 'Earring, Jacob Ulrich Holfeldt Tostrup', 'The Metropolitan Museum of Art', 'CC0', 1400, 1172
-FROM artwork WHERE slug = 'earring-jacob-ulrich-holfeldt-tostrup-189053';
-
--- Tiara (Jacob Ulrich Holfeldt Tostrup), Met 189050
-INSERT INTO artwork (slug, artist_id, artwork_type_id, title, date_label, year, description, culture, source_name, source_url, credit_line)
-SELECT 'tiara-jacob-ulrich-holfeldt-tostrup-189050', ar.id, t.id, 'Tiara', 'ca. 1873', 1868, 'Tiara in silver filigree, by Jacob Ulrich Holfeldt Tostrup (Norwegian, Sande, near Stavanger 1806–1890 Christiana (now Oslo)), dated ca. 1873. From the collection of The Metropolitan Museum of Art (European Sculpture and Decorative Arts).', NULL,
-  'The Metropolitan Museum of Art', 'https://www.metmuseum.org/art/collection/search/189050', 'Gift of Mrs. Harriette M. Arnold, 1906'
-FROM artist ar, artwork_type t WHERE ar.slug = 'jacob-ulrich-holfeldt-tostrup' AND t.name = 'Headdress';
-INSERT INTO artwork_material (artwork_id, material_id) SELECT a.id, m.id FROM artwork a, material m WHERE a.slug = 'tiara-jacob-ulrich-holfeldt-tostrup-189050' AND m.name = 'Silver';
-INSERT INTO media (artwork_id, file_url, media_type, caption, credit, license, width, height)
-SELECT id, '/images/archive/met-189050.webp', 'photo', 'Tiara, Jacob Ulrich Holfeldt Tostrup', 'The Metropolitan Museum of Art', 'CC0', 1400, 783
-FROM artwork WHERE slug = 'tiara-jacob-ulrich-holfeldt-tostrup-189050';
 
 -- Parure: tiara, necklace, and brooch (Luigi Saulini), Met 198636
 INSERT INTO artwork (slug, artist_id, artwork_type_id, title, date_label, year, description, culture, source_name, source_url, credit_line)

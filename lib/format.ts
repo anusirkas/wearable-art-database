@@ -25,3 +25,8 @@ export function countryName(code: string | null) {
     return code;
   }
 }
+
+/** Years before the common era come out of the database as negative numbers. */
+export function formatYear(year: number) {
+  return year < 0 ? `${-year} BCE` : String(year);
+}

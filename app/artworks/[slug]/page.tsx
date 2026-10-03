@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ArtworkGrid from "@/components/ArtworkGrid";
+import WallLabel from "@/components/WallLabel";
 import { getArtwork, getRelated } from "@/lib/queries";
 import { formatDate, formatRange, sustainabilityLabel } from "@/lib/format";
 
@@ -31,7 +32,7 @@ export default async function ArtworkPage({ params }: PageProps<"/artworks/[slug
 
   return (
     <article className="artwork">
-      <Link href="/" className="back">
+      <Link href="/archive" className="back">
         ← Archive
       </Link>
 
@@ -70,7 +71,7 @@ export default async function ArtworkPage({ params }: PageProps<"/artworks/[slug
             <Link href={`/artists/${artwork.artist.slug}`}>{artwork.artist.name}</Link>
             {artwork.date_label && <span> · {artwork.date_label}</span>}
           </p>
-          {artwork.artist.is_demo && <p className="demo-flag">Demo profile from the original course project</p>}
+          {artwork.artist.is_demo && <p className="demo-flag">Demo studio · illustrative photography</p>}
 
           {artwork.description && <p className="lead">{artwork.description}</p>}
           {artwork.inspiration && (
@@ -78,6 +79,15 @@ export default async function ArtworkPage({ params }: PageProps<"/artworks/[slug
               <strong>Inspiration.</strong> {artwork.inspiration}
             </p>
           )}
+
+          <WallLabel
+            maker={artwork.artist.name}
+            lifeDates={artwork.artist.life_dates}
+            title={artwork.title}
+            date={artwork.date_label}
+            medium={artwork.materials.map((m) => m.name).join(", ") || null}
+            credit={artwork.credit_line ?? artwork.media[0]?.credit}
+          />
 
           <dl className="facts">
             {artwork.culture && (
@@ -119,7 +129,7 @@ export default async function ArtworkPage({ params }: PageProps<"/artworks/[slug
               <ul className="materials">
                 {artwork.materials.map((m) => (
                   <li key={m.name}>
-                    <Link href={`/?material=${encodeURIComponent(m.name)}`}>{m.name}</Link>
+                    <Link href={`/archive?material=${encodeURIComponent(m.name)}`}>{m.name}</Link>
                     {m.quantity && <span className="muted"> · {m.quantity}</span>}
                     <span className={`sus sus-${String(m.is_sustainable)}`}>{sustainabilityLabel(m.is_sustainable)}</span>
                     {m.origin && <small>{m.origin}</small>}
@@ -135,7 +145,7 @@ export default async function ArtworkPage({ params }: PageProps<"/artworks/[slug
               <ol className="techniques">
                 {artwork.techniques.map((t) => (
                   <li key={t.name}>
-                    <Link href={`/?technique=${encodeURIComponent(t.name)}`}>{t.name}</Link>
+                    <Link href={`/archive?technique=${encodeURIComponent(t.name)}`}>{t.name}</Link>
                     {t.description && <small>{t.description}</small>}
                   </li>
                 ))}

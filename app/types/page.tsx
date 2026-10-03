@@ -30,7 +30,7 @@ export default async function TypesPage() {
             <ul className="type-list">
               {inCategory.map((t) => (
                 <li key={t.id}>
-                  <Link href={`/?type=${encodeURIComponent(t.name)}`}>
+                  <Link href={`/archive?type=${encodeURIComponent(t.name)}`}>
                     <strong>{t.name}</strong>
                     <span className="muted">{t.works}</span>
                   </Link>

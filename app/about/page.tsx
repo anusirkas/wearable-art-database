@@ -122,12 +122,12 @@ HAVING sum(cs.hours) > 100;`}</pre>
 
         <div className="query">
           <h3>One artist&apos;s work</h3>
-          <p className="muted">“I like Anu Sirkas&apos;s handwriting. Show me all her pieces.”</p>
+          <p className="muted">“I like Halcyon Knit Lab&apos;s work. Show me all their pieces.”</p>
           <pre>{`SELECT ar.name, a.title, t.name AS type, a.description
 FROM artist ar
 JOIN artwork a ON a.artist_id = ar.id
 JOIN artwork_type t ON t.id = a.artwork_type_id
-WHERE ar.name = 'Anu Sirkas';`}</pre>
+WHERE ar.name = 'Halcyon Knit Lab';`}</pre>
           <ul className="result">
             {byArtist.map((r) => (
               <li key={r.title}>

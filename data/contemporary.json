@@ -1,0 +1,590 @@
+{
+  "_note": "Contemporary designers: hand-picked Wikimedia Commons photos (index into commons-candidates.json). Facts come from the Commons file descriptions and the exhibiting museums.",
+  "designers": {
+    "Iris van Herpen": {
+      "slug": "iris-van-herpen",
+      "life_dates": "Dutch, born 1984",
+      "country": "NL",
+      "bio": "Dutch couturier who builds garments with 3D printing, laser cutting and heat-bonded materials, often with scientists and architects."
+    },
+    "Guo Pei": {
+      "slug": "guo-pei",
+      "life_dates": "Chinese, born 1967",
+      "country": "CN",
+      "bio": "Beijing couturier known for monumental, hand-embroidered gowns that can take thousands of hours to make."
+    },
+    "Marine Serre": {
+      "slug": "marine-serre",
+      "life_dates": "French, born 1991",
+      "country": "FR",
+      "bio": "Paris designer whose collections are built largely from regenerated and upcycled materials."
+    },
+    "Alexander McQueen": {
+      "slug": "alexander-mcqueen",
+      "life_dates": "British, 1969–2010",
+      "country": "GB",
+      "bio": "London designer whose theatrical collections joined Savile Row tailoring with romantic, often dark storytelling."
+    },
+    "Viktor & Rolf": {
+      "slug": "viktor-and-rolf",
+      "life_dates": "Dutch, founded 1993",
+      "country": "NL",
+      "bio": "Amsterdam duo who treat couture as conceptual art, from upside-down shows to dresses cut like sculptures."
+    },
+    "Rei Kawakubo": {
+      "slug": "rei-kawakubo",
+      "life_dates": "Japanese, born 1942",
+      "country": "JP",
+      "bio": "Founder of Comme des Garçons, who questions what a garment is with abstract, body-reshaping forms."
+    },
+    "Yohji Yamamoto": {
+      "slug": "yohji-yamamoto",
+      "life_dates": "Japanese, born 1943",
+      "country": "JP",
+      "bio": "Tokyo designer of asymmetric, mostly black tailoring that drapes away from the body."
+    },
+    "Issey Miyake": {
+      "slug": "issey-miyake",
+      "life_dates": "Japanese, 1938–2022",
+      "country": "JP",
+      "bio": "Designer and engineer of cloth, best known for permanent garment pleating and experiments with new fibres."
+    },
+    "Thierry Mugler": {
+      "slug": "thierry-mugler",
+      "life_dates": "French, 1948–2022",
+      "country": "FR",
+      "bio": "Paris designer of sculpted, armour-like silhouettes and some of the most theatrical shows of the 1980s and 90s."
+    },
+    "John Galliano": {
+      "slug": "john-galliano",
+      "life_dates": "British, born 1960",
+      "country": "GB",
+      "bio": "Designer known for historical romance and bias-cut drama, at his own label, Christian Dior and Maison Margiela."
+    },
+    "Gareth Pugh": {
+      "slug": "gareth-pugh",
+      "life_dates": "British, born 1981",
+      "country": "GB",
+      "bio": "London designer of geometric, often monochrome looks in unexpected materials, from plastic to bin bags."
+    },
+    "Hussein Chalayan": {
+      "slug": "hussein-chalayan",
+      "life_dates": "Cypriot-British, born 1970",
+      "country": "GB",
+      "bio": "Designer who brings furniture, technology and migration into fashion: tables that become skirts, dresses lit by LEDs."
+    },
+    "Molly Goddard": {
+      "slug": "molly-goddard",
+      "life_dates": "British, born 1988",
+      "country": "GB",
+      "bio": "London designer of exuberant, hand-smocked tulle dresses."
+    },
+    "Vivienne Westwood": {
+      "slug": "vivienne-westwood",
+      "life_dates": "British, 1941–2022",
+      "country": "GB",
+      "bio": "From punk to historical tailoring, a designer who reworked British dress history and campaigned on climate."
+    },
+    "Shaun Leane": {
+      "slug": "shaun-leane",
+      "life_dates": "British, born 1969",
+      "country": "GB",
+      "bio": "London jeweller trained in traditional goldsmithing, known for sculptural body pieces made with Alexander McQueen."
+    },
+    "Kei Ninomiya": {
+      "slug": "kei-ninomiya",
+      "life_dates": "Japanese, born 1984",
+      "country": "JP",
+      "bio": "Designer of the Noir Kei Ninomiya label, who builds garments from thousands of small parts without sewing them."
+    }
+  },
+  "pieces": [
+    {
+      "i": 1,
+      "designer": "Iris van Herpen",
+      "title": "Syntopia, look 7",
+      "date": "2018",
+      "year": 2018,
+      "type": "Dress",
+      "materials": [
+        "Mylar",
+        "Organza",
+        "Tulle"
+      ],
+      "techniques": [
+        "Heat bonding",
+        "Laser cutting"
+      ],
+      "description": "Heat-welded white polyester with Mylar, organza and polyamide tulle, from the Syntopia collection, inspired by bird flight."
+    },
+    {
+      "i": 3,
+      "designer": "Iris van Herpen",
+      "title": "Dress, Capriole collection",
+      "date": "Autumn/Winter 2011–12",
+      "year": 2011,
+      "type": "Dress",
+      "materials": [
+        "Leather"
+      ],
+      "techniques": [
+        "Laser cutting"
+      ],
+      "description": "A dress from Capriole, Iris van Herpen's collection about the moment before a parachute jump. Shown at the Galleria del Costume, Florence."
+    },
+    {
+      "i": 8,
+      "designer": "Iris van Herpen",
+      "title": "Couture ensemble",
+      "date": "Autumn/Winter 2011–12, edition 2015",
+      "year": 2011,
+      "type": "Ensemble",
+      "materials": [
+        "Polyamide",
+        "Leather",
+        "Acrylic"
+      ],
+      "techniques": [
+        "3D printing"
+      ],
+      "description": "Top of 3D-printed white polyamide in the form of spiralling shells; skirt of white cow leather trimmed with clear acrylic fringe."
+    },
+    {
+      "i": 11,
+      "designer": "Iris van Herpen",
+      "title": "Gown, Sculpting the Senses",
+      "date": "2024 exhibition",
+      "year": null,
+      "type": "Evening dress",
+      "materials": [
+        "Organza",
+        "Tulle"
+      ],
+      "techniques": [
+        "Laser cutting",
+        "Heat bonding"
+      ],
+      "description": "A lattice-like gown shown in Iris van Herpen: Sculpting the Senses at the Gallery of Modern Art, Brisbane, 2024."
+    },
+    {
+      "i": 19,
+      "designer": "Guo Pei",
+      "title": "Gold couture gown (detail)",
+      "date": "2015 exhibition",
+      "year": null,
+      "type": "Evening dress",
+      "materials": [
+        "Silk",
+        "Metallic thread"
+      ],
+      "techniques": [
+        "Embroidery"
+      ],
+      "description": "A gold-embroidered couture gown shown in “China: Through the Looking Glass” at the Metropolitan Museum of Art, 2015."
+    },
+    {
+      "i": 20,
+      "designer": "Guo Pei",
+      "title": "Couture gown",
+      "date": "2015 exhibition",
+      "year": null,
+      "type": "Evening dress",
+      "materials": [
+        "Silk",
+        "Metallic thread"
+      ],
+      "techniques": [
+        "Embroidery"
+      ],
+      "description": "A Guo Pei design shown in “China: Through the Looking Glass” at the Metropolitan Museum of Art, 2015."
+    },
+    {
+      "i": 23,
+      "designer": "Marine Serre",
+      "title": "Awakened Icon, Amor Fati",
+      "date": "Spring/Summer 2021",
+      "year": 2021,
+      "type": "Ensemble",
+      "materials": [
+        "Deadstock fabric"
+      ],
+      "techniques": [
+        "Upcycling",
+        "Sewing"
+      ],
+      "description": "A look from Amor Fati, built from regenerated materials with Marine Serre's crescent-moon print."
+    },
+    {
+      "i": 25,
+      "designer": "Alexander McQueen",
+      "title": "Two dresses, Angels and Demons",
+      "date": "Autumn/Winter 2010",
+      "year": 2010,
+      "type": "Evening dress",
+      "materials": [
+        "Silk",
+        "Feathers",
+        "Tulle"
+      ],
+      "techniques": [
+        "Jacquard weaving",
+        "Embroidery"
+      ],
+      "description": "Looks 16 and 11 from McQueen's final collection, shown at Savage Beauty, Victoria and Albert Museum."
+    },
+    {
+      "i": 27,
+      "designer": "Alexander McQueen",
+      "title": "Feather dress, The Horn of Plenty",
+      "date": "Autumn/Winter 2009",
+      "year": 2009,
+      "type": "Evening dress",
+      "materials": [
+        "Feathers"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "Look 45 from The Horn of Plenty, shown at Savage Beauty, Victoria and Albert Museum."
+    },
+    {
+      "i": 30,
+      "designer": "Alexander McQueen",
+      "title": "Dress, Eshu",
+      "date": "Autumn/Winter 2000",
+      "year": 2000,
+      "type": "Dress",
+      "materials": [
+        "Glass beads",
+        "Horsehair"
+      ],
+      "techniques": [
+        "Beadwork"
+      ],
+      "description": "Look 37 from Eshu, named after a Yoruba deity, shown at Savage Beauty, Victoria and Albert Museum."
+    },
+    {
+      "i": 36,
+      "designer": "Alexander McQueen",
+      "title": "Parachute cape",
+      "date": "Autumn/Winter 2002",
+      "year": 2002,
+      "type": "Coat",
+      "materials": [
+        "Silk"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "Black silk parachute cape, look 50 from Supercalifragilisticexpialidocious, shown at Savage Beauty, Victoria and Albert Museum."
+    },
+    {
+      "i": 52,
+      "designer": "Viktor & Rolf",
+      "title": "Couture gown",
+      "date": "2018 exhibition",
+      "year": null,
+      "type": "Evening dress",
+      "materials": [
+        "Tulle"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "A sculptural red tulle gown shown in Fashion Artists Viktor & Rolf at the Kunsthal, Rotterdam, 2018."
+    },
+    {
+      "i": 59,
+      "designer": "Viktor & Rolf",
+      "title": "“Hana” dress, Bedtime Story",
+      "date": "Autumn/Winter 2005",
+      "year": 2005,
+      "type": "Dress",
+      "materials": [
+        "Cotton"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "From Bedtime Story, a collection built around pillows and bedding worn as clothes."
+    },
+    {
+      "i": 70,
+      "designer": "Rei Kawakubo",
+      "title": "Two looks, Art of the In-Between",
+      "date": "2017 exhibition",
+      "year": null,
+      "type": "Ensemble",
+      "materials": [
+        "Cotton",
+        "Polyester"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "Comme des Garçons looks shown in Rei Kawakubo/Comme des Garçons: Art of the In-Between, Metropolitan Museum of Art, 2017."
+    },
+    {
+      "i": 74,
+      "designer": "Rei Kawakubo",
+      "title": "Body-reshaping looks",
+      "date": "2017 exhibition",
+      "year": null,
+      "type": "Ensemble",
+      "materials": [
+        "Wool",
+        "Polyester"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "Comme des Garçons looks shown in Art of the In-Between, Metropolitan Museum of Art, 2017."
+    },
+    {
+      "i": 127,
+      "designer": "Yohji Yamamoto",
+      "title": "Jacket and skirt",
+      "date": "Autumn/Winter 2003–04",
+      "year": 2003,
+      "type": "Ensemble",
+      "materials": [
+        "Wool",
+        "Silk"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "Wool and silk jacket and skirt, shown at the Galleria del Costume, Florence."
+    },
+    {
+      "i": 129,
+      "designer": "Issey Miyake",
+      "title": "Rhythm Pleats",
+      "date": "1990",
+      "year": 1990,
+      "type": "Ensemble",
+      "materials": [
+        "Polyester"
+      ],
+      "techniques": [
+        "Pleating"
+      ],
+      "description": "Polyester cut and sewn first, then pleated and set with heat and pressure, from the Rhythm Pleats collection."
+    },
+    {
+      "i": 135,
+      "designer": "Issey Miyake",
+      "title": "Plastic Body bustier",
+      "date": "1980",
+      "year": 1980,
+      "type": "Accessory",
+      "materials": [
+        "Fibreglass-reinforced plastic"
+      ],
+      "techniques": [
+        "Moulding"
+      ],
+      "description": "A bustier moulded in reinforced plastic, shown in Tra Arte e Moda at the Museo Salvatore Ferragamo, 2016."
+    },
+    {
+      "i": 161,
+      "designer": "Thierry Mugler",
+      "title": "Evening set",
+      "date": "Spring 1989",
+      "year": 1989,
+      "type": "Evening dress",
+      "materials": [
+        "Metallic thread"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "A mermaid-like evening set, shown in Dress, Dreams and Desire at the Museum at FIT, New York."
+    },
+    {
+      "i": 162,
+      "designer": "Thierry Mugler",
+      "title": "Motorcycle corset",
+      "date": "Autumn/Winter 1992–93",
+      "year": 1992,
+      "type": "Ensemble",
+      "materials": [
+        "Plastic",
+        "Metal"
+      ],
+      "techniques": [
+        "Moulding"
+      ],
+      "description": "The bustier-as-motorbike from Mugler's Les Cow-boys collection, shown at the Montreal Museum of Fine Arts retrospective, 2019."
+    },
+    {
+      "i": 170,
+      "designer": "John Galliano",
+      "title": "Newspaper dress for Christian Dior",
+      "date": "Autumn/Winter 2000",
+      "year": 2000,
+      "type": "Dress",
+      "materials": [
+        "Silk"
+      ],
+      "techniques": [
+        "Textile printing"
+      ],
+      "description": "Galliano's print of Dior's own newspaper headlines, shown at the Royal Ontario Museum, 2011."
+    },
+    {
+      "i": 176,
+      "designer": "John Galliano",
+      "title": "Pink ensemble for Christian Dior",
+      "date": "1998",
+      "year": 1998,
+      "type": "Coat",
+      "materials": [
+        "Wool",
+        "Fur"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "Shown in Fabulous Fashion: From Dior's New Look to Now, Philadelphia Museum of Art, 2018."
+    },
+    {
+      "i": 190,
+      "designer": "Gareth Pugh",
+      "title": "Look 41",
+      "date": "2014",
+      "year": 2014,
+      "type": "Ensemble",
+      "materials": [
+        "Plastic sheeting",
+        "Calico"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "Ensemble in plastic sheeting and calico, chosen as the Fashion Museum Bath's Dress of the Year 2014."
+    },
+    {
+      "i": 193,
+      "designer": "Gareth Pugh",
+      "title": "Dress",
+      "date": "Spring/Summer 2018",
+      "year": 2018,
+      "type": "Dress",
+      "materials": [
+        "Polyester"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "A geometric orange dress, shown at the Galleria del Costume, Florence."
+    },
+    {
+      "i": 201,
+      "designer": "Hussein Chalayan",
+      "title": "Coffee table skirt, Afterwords",
+      "date": "Autumn/Winter 2000",
+      "year": 2000,
+      "type": "Accessory",
+      "materials": [
+        "Wood"
+      ],
+      "techniques": [
+        "Woodworking"
+      ],
+      "description": "A wooden coffee table that telescopes into a skirt, from Afterwords, a collection about leaving home in a hurry."
+    },
+    {
+      "i": 203,
+      "designer": "Hussein Chalayan",
+      "title": "Tulle dress",
+      "date": "2000",
+      "year": 2000,
+      "type": "Dress",
+      "materials": [
+        "Tulle"
+      ],
+      "techniques": [
+        "Sewing"
+      ],
+      "description": "A ruffled pink tulle dress by Hussein Chalayan, 2000."
+    },
+    {
+      "i": 197,
+      "designer": "Hussein Chalayan",
+      "title": "LED dress",
+      "date": "2007",
+      "year": 2007,
+      "type": "Dress",
+      "materials": [
+        "LEDs",
+        "Crystals"
+      ],
+      "techniques": [
+        "Electronics"
+      ],
+      "description": "A dress lit from within by LEDs, from Chalayan's experiments with light and technology in clothing."
+    },
+    {
+      "i": 211,
+      "designer": "Molly Goddard",
+      "title": "Daria dress",
+      "date": "2019",
+      "year": 2019,
+      "type": "Evening dress",
+      "materials": [
+        "Tulle"
+      ],
+      "techniques": [
+        "Smocking"
+      ],
+      "description": "Nylon tulle with over 60 metres of fabric, displayed at V&A East, London."
+    },
+    {
+      "i": 238,
+      "designer": "Vivienne Westwood",
+      "title": "Evening dress after Elizabeth I",
+      "date": "1997",
+      "year": 1997,
+      "type": "Evening dress",
+      "materials": [
+        "Silk"
+      ],
+      "techniques": [
+        "Textile printing",
+        "Sewing"
+      ],
+      "description": "An evening dress inspired by portraits of Queen Elizabeth I."
+    },
+    {
+      "i": 221,
+      "designer": "Shaun Leane",
+      "title": "Coiled corset for Alexander McQueen",
+      "date": "Autumn/Winter 1999",
+      "year": 1999,
+      "type": "Accessory",
+      "materials": [
+        "Aluminium"
+      ],
+      "techniques": [
+        "Goldsmithing"
+      ],
+      "description": "A form-encasing bodice made from coils of aluminium, look 47 from Alexander McQueen’s The Overlook."
+    },
+    {
+      "i": 208,
+      "designer": "Kei Ninomiya",
+      "title": "Jacket, Moncler Genius",
+      "date": "Autumn/Winter 2018–19",
+      "year": 2018,
+      "type": "Jacket",
+      "materials": [
+        "Nylon"
+      ],
+      "techniques": [
+        "Assembly without sewing"
+      ],
+      "description": "A sculptural puffer for 6 Moncler Noir Kei Ninomiya, shown at the Galleria del Costume, Florence."
+    }
+  ]
+}

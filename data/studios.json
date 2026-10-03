@@ -1,0 +1,236 @@
+{
+  "_note": "Fictional demo studios. Photos are Unsplash License images used as illustrations; the photographer is credited on every image.",
+  "studios": [
+    {
+      "slug": "atelier-vantreur",
+      "name": "Atelier Vantreur",
+      "status": "verified",
+      "country": "FR",
+      "bio": "Sculptural eveningwear cut by hand in small numbers. Every gown starts as a paper toile and ends with a record of the hours it took.",
+      "cv": "Shown at Haute Couture Night (London) and Wearable Futures (Copenhagen). Works with two French mills on deadstock silk.",
+      "pieces": [
+        {
+          "slug": "nocturne-gown", "title": "Nocturne gown", "year": 2025, "type": "Evening dress", "size": "S",
+          "description": "Black silk faille gown with batwing sleeves that fall into a pooled train. Cut from a single length of deadstock silk.",
+          "inspiration": "Night swimming, and the way dark water closes behind you.",
+          "materials": [["Deadstock fabric", "7 m silk faille"], ["Silk", "lining, 4 m"]],
+          "techniques": ["Pattern cutting", "Sewing"],
+          "stages": [["Toile and fittings", "2025-01-06", "2025-01-24", 38], ["Cutting the silk", "2025-01-27", "2025-01-28", 9], ["Construction and hand finishing", "2025-01-29", "2025-03-07", 112]],
+          "photos": [["r5etsH8QAvo", "Michael Kyule"], ["AIaYcpfB7jo", "Michael Kyule"]]
+        },
+        {
+          "slug": "folded-paper-bustier", "title": "Folded paper bustier", "year": 2024, "type": "Dress", "size": "M",
+          "description": "Ivory cotton-silk bustier dress with origami folds that are set by hand and stitched invisibly from inside.",
+          "inspiration": "Folded letters, never sent.",
+          "materials": [["Organic cotton", "3 m cotton-silk"], ["Silk", "2 m organza"]],
+          "techniques": ["Pleating", "Sewing"],
+          "stages": [["Folding studies", "2024-05-02", "2024-05-16", 26], ["Construction", "2024-05-17", "2024-06-21", 74]],
+          "photos": [["72smOZVjtG8", "Lute"]]
+        },
+        {
+          "slug": "ink-rib-gown", "title": "Ink rib gown", "year": 2025, "type": "Evening dress", "size": "M",
+          "description": "Iridescent ribbed bodice in hand-dyed taffeta over a tulle underskirt, finished with a sheer standing collar.",
+          "inspiration": "The ribs of an umbrella turned inside out by the wind.",
+          "materials": [["Silk", "taffeta, 5 m"], ["Tulle", "8 m"]],
+          "techniques": ["Hand dyeing", "Sewing"],
+          "stages": [["Dye tests", "2025-04-01", "2025-04-09", 14], ["Rib construction", "2025-04-10", "2025-05-15", 96]],
+          "photos": [["YjOK9ONpcMk", "Ivan Vranić"]]
+        }
+      ]
+    },
+    {
+      "slug": "halcyon-knit-lab",
+      "name": "Halcyon Knit Lab",
+      "status": "verified",
+      "country": "DK",
+      "bio": "A knitwear studio that hand-knits everything in traceable wool and publishes the yarn, the swatches and the hours for each piece.",
+      "cv": "Textile design studies in Copenhagen and Glasgow. Shown at the Wearable Art Triennial. Member since 2023.",
+      "pieces": [
+        {
+          "slug": "cloud-rib-sweater", "title": "Cloud rib sweater", "year": 2025, "type": "Jacket", "size": "M",
+          "description": "Oversized hand-knitted rib sweater in undyed merino, long enough in the sleeve to swallow your hands.",
+          "inspiration": "Fog on the Øresund in February.",
+          "materials": [["Merino wool", "900 g, undyed"]],
+          "techniques": ["Rib knitting", "English rib"],
+          "stages": [["Swatching", "2025-01-08", "2025-01-12", 8], ["Knitting", "2025-01-13", "2025-02-20", 64], ["Blocking and seaming", "2025-02-21", "2025-02-25", 6]],
+          "photos": [["mU88MlEFcoU", "Valna Studio"]]
+        },
+        {
+          "slug": "oxblood-cable-pullover", "title": "Oxblood cable pullover", "year": 2024, "type": "Jacket", "size": "L",
+          "description": "Dense cable knit in plant-dyed wool, with cables that run unbroken from hem to collar.",
+          "inspiration": "Old fishermen's ganseys, slowed down.",
+          "materials": [["Wool", "1.1 kg, madder-dyed"], ["Mohair", "200 g"]],
+          "techniques": ["Cable knitting", "Hand dyeing"],
+          "stages": [["Dyeing the yarn", "2024-09-02", "2024-09-06", 12], ["Knitting", "2024-09-09", "2024-11-01", 88]],
+          "photos": [["P32hl85xaZ0", "Zoe"]]
+        },
+        {
+          "slug": "moss-lace-cardigan", "title": "Moss lace cardigan (in progress)", "year": 2026, "type": "Jacket", "size": "M",
+          "description": "Still on the needles: an openwork lace cardigan in moss-green wool. The archive records it while it is being made.",
+          "inspiration": "Lichen on granite.",
+          "materials": [["Wool", "about 600 g so far"]],
+          "techniques": ["Lace knitting"],
+          "stages": [["Knitting the back and fronts", "2026-08-01", null, 41]],
+          "photos": [["_oIqGDIMUoQ", "Giulia Bertelli"]]
+        }
+      ]
+    },
+    {
+      "slug": "brandt-and-mirelle",
+      "name": "Brandt & Mirelle",
+      "status": "verified",
+      "country": "NL",
+      "bio": "Jewellery studio working in recycled silver and gold, with stones bought one by one from named dealers.",
+      "cv": "Goldsmithing training in Amsterdam and Florence. Curator endorsement for the Harbour series.",
+      "pieces": [
+        {
+          "slug": "emerald-cascade-choker", "title": "Emerald cascade choker", "year": 2025, "type": "Necklace",
+          "description": "Seventeen strands of seed pearls gathered into a cushion-cut emerald centre, edged with old-cut diamonds.",
+          "inspiration": "A Mughal choker seen in a museum, rebuilt from memory.",
+          "materials": [["Pearls", "seed pearls, 17 strands"], ["Gemstones", "emerald centre stone"], ["Diamonds", "old-cut, reused"], ["Recycled silver", "setting"]],
+          "techniques": ["Stone setting", "Goldsmithing"],
+          "stages": [["Design and stone sourcing", "2025-02-03", "2025-03-14", 22], ["Setting and stringing", "2025-03-17", "2025-05-02", 140]],
+          "photos": [["pirt2RxX36Q", "Shubhi Verma"]]
+        },
+        {
+          "slug": "baroque-pearl-rope", "title": "Baroque pearl rope", "year": 2024, "type": "Necklace",
+          "description": "Irregular baroque pearls knotted on silk, each knot tied by hand so no two pearls touch.",
+          "inspiration": "Pearls that refuse to be round.",
+          "materials": [["Pearls", "41 baroque pearls"], ["Silk", "knotting thread"]],
+          "techniques": ["Hand knotting"],
+          "stages": [["Grading the pearls", "2024-10-01", "2024-10-03", 6], ["Knotting", "2024-10-04", "2024-10-09", 14]],
+          "photos": [["EkBc6R2ZJ7c", "Rosemary Media"]]
+        },
+        {
+          "slug": "harbour-bead-necklace", "title": "Harbour bead necklace", "year": 2025, "type": "Necklace",
+          "description": "Glass beads in harbour blues with a gold-plated clasp shaped like a mooring hook.",
+          "inspiration": "Rotterdam harbour at dusk.",
+          "materials": [["Glass beads", "Murano glass, 118 beads"], ["Gold", "recycled, plated clasp"]],
+          "techniques": ["Beadwork", "Goldsmithing"],
+          "stages": [["Clasp carving", "2025-06-02", "2025-06-10", 18], ["Stringing", "2025-06-11", "2025-06-13", 7]],
+          "photos": [["QBUMAVm8r3U", "César O'neill"]]
+        },
+        {
+          "slug": "sun-pendant-chain", "title": "Sun pendant chain", "year": 2025, "type": "Necklace",
+          "description": "A hand-pierced sun in recycled silver on a fine trace chain.",
+          "inspiration": "The first warm day of the year.",
+          "materials": [["Recycled silver", "14 g"]],
+          "techniques": ["Goldsmithing"],
+          "stages": [["Piercing and finishing", "2025-03-03", "2025-03-07", 11]],
+          "photos": [["7PBfsZab_Hg", "César O'neill"]]
+        }
+      ]
+    },
+    {
+      "slug": "ossery-studio",
+      "name": "Ossery Studio",
+      "status": "emerging",
+      "country": "GB",
+      "bio": "A young London studio painting, coating and fringing garments by hand. Loud colour, slow work.",
+      "cv": "Graduated in fashion and printed textiles in 2023. First solo show: Abstract Fabric Surfaces, Rotterdam.",
+      "pieces": [
+        {
+          "slug": "spill-dress", "title": "Spill dress", "year": 2025, "type": "Dress", "size": "S",
+          "description": "Strapless dress in organic cotton, hand-painted in layers of textile paint so the colours bleed like spilled ink.",
+          "inspiration": "Abstract painting, colour flow and movement across fabric.",
+          "materials": [["Organic cotton", "4 m"], ["Textile paint", "several layers"]],
+          "techniques": ["Textile painting", "Sewing"],
+          "stages": [["Composition sketches", "2025-02-10", "2025-02-14", 10], ["Painting the fabric", "2025-02-17", "2025-03-07", 42], ["Construction", "2025-03-10", "2025-03-21", 28]],
+          "photos": [["FJwXJpO9DJI", "Solene bernardeau"]]
+        },
+        {
+          "slug": "liquid-chrome-set", "title": "Liquid chrome set", "year": 2026, "type": "Ensemble", "size": "M",
+          "description": "Top and trousers in deadstock jersey, coated by hand in a flexible metallic finish.",
+          "inspiration": "Mercury, and car paint at night.",
+          "materials": [["Deadstock fabric", "stretch jersey, 3 m"], ["Metallic thread", "coating"]],
+          "techniques": ["Coating", "Sewing"],
+          "stages": [["Coating tests", "2026-01-12", "2026-01-30", 24], ["Construction", "2026-02-02", "2026-02-20", 36]],
+          "photos": [["sThjdKXXTRw", "Marcin Sajur"]]
+        },
+        {
+          "slug": "copper-fringe-dress", "title": "Copper fringe dress", "year": 2025, "type": "Dress", "size": "S",
+          "description": "Short dress with tiers of hand-cut fringe that move like grass in wind.",
+          "inspiration": "Savannah grass, seen from very close.",
+          "materials": [["Deadstock fabric", "suede-effect fringe, 6 m"]],
+          "techniques": ["Sewing"],
+          "stages": [["Cutting the fringe", "2025-07-01", "2025-07-18", 46], ["Construction", "2025-07-21", "2025-08-01", 30]],
+          "photos": [["yqVYe3OdgA0", "Babarinde Tosin"]]
+        }
+      ]
+    },
+    {
+      "slug": "maison-quellane",
+      "name": "Maison Quellane",
+      "status": "emerging",
+      "country": "BE",
+      "bio": "Millinery and headpieces, blocked by hand on wooden forms. Somewhere between a hat and a small sculpture.",
+      "cv": "Trained in traditional millinery in Brussels. Headpieces for stage and runway.",
+      "pieces": [
+        {
+          "slug": "black-filigree-crown", "title": "Black filigree crown", "year": 2025, "type": "Headdress",
+          "description": "A crown of lacquered black wire scrolls, light enough to wear all evening.",
+          "inspiration": "Wrought-iron balconies in Brussels.",
+          "materials": [["Metal", "lacquered wire"]],
+          "techniques": ["Wirework", "Millinery"],
+          "stages": [["Drawing the scrolls", "2025-04-07", "2025-04-11", 9], ["Bending and lacquering", "2025-04-14", "2025-05-02", 52]],
+          "photos": [["jaHCFV4e6-A", "samo mw"]]
+        },
+        {
+          "slug": "sculpted-straw-brim", "title": "Sculpted straw brim", "year": 2024, "type": "Hat",
+          "description": "A wide sun hat in natural straw, blocked by hand and steamed into a soft wave.",
+          "inspiration": "Long afternoons, no plans.",
+          "materials": [["Straw", "natural, undyed"]],
+          "techniques": ["Millinery"],
+          "stages": [["Blocking", "2024-03-04", "2024-03-08", 14], ["Shaping and finishing", "2024-03-11", "2024-03-15", 12]],
+          "photos": [["Ci8wQO4Ehlo", "DDP"]]
+        },
+        {
+          "slug": "gilded-bloom-eyepiece", "title": "Gilded bloom eyepiece", "year": 2026, "type": "Headdress",
+          "description": "A gilded flower that covers one eye, held by a hidden band.",
+          "inspiration": "A daisy pressed in a book and forgotten.",
+          "materials": [["Gold", "gold leaf over brass"]],
+          "techniques": ["Gilding"],
+          "stages": [["Forming the petals", "2026-02-02", "2026-02-13", 20], ["Gilding", "2026-02-16", "2026-02-20", 10]],
+          "photos": [["qYfvJwIJ7Fs", "Selvadass M"]]
+        }
+      ]
+    },
+    {
+      "slug": "wrenfield-reclaim",
+      "name": "Wrenfield Reclaim",
+      "status": "guest",
+      "country": "US",
+      "bio": "Statement jewellery made only from reclaimed beads, chains and stones, each traced back to where it was found.",
+      "cv": "Guest studio. Works with estate sales and vintage dealers.",
+      "pieces": [
+        {
+          "slug": "salvaged-jewel-bib", "title": "Salvaged jewel bib", "year": 2025, "type": "Necklace",
+          "description": "A bib necklace built from 60 stones and beads rescued from broken costume jewellery.",
+          "inspiration": "A jewellery box found at an estate sale.",
+          "materials": [["Glass beads", "reclaimed, 60 pieces"], ["Gemstones", "reclaimed"]],
+          "techniques": ["Beadwork", "Upcycling"],
+          "stages": [["Sorting and cleaning", "2025-05-05", "2025-05-09", 12], ["Assembly", "2025-05-12", "2025-05-30", 34]],
+          "photos": [["3dsipPp3sq4", "Camila Quintero Franco"]]
+        },
+        {
+          "slug": "riviere-reworked", "title": "Rivière, reworked", "year": 2024, "type": "Necklace",
+          "description": "A broken rivière necklace, re-strung and reset with matching vintage paste stones.",
+          "inspiration": "Repair as design.",
+          "materials": [["Glass beads", "vintage paste stones"], ["Recycled silver", "new settings"]],
+          "techniques": ["Stone setting", "Upcycling"],
+          "stages": [["Repair", "2024-11-04", "2024-11-15", 21]],
+          "photos": [["nQJnooc_ogI", "Rosemary Media"]]
+        },
+        {
+          "slug": "candy-gem-chain", "title": "Candy gem chain", "year": 2025, "type": "Necklace",
+          "description": "Coloured stones from a dozen broken necklaces, joined on one long gold-tone chain.",
+          "inspiration": "Sweet jars.",
+          "materials": [["Gemstones", "reclaimed, 24 stones"], ["Metal", "gold-tone chain"]],
+          "techniques": ["Upcycling"],
+          "stages": [["Assembly", "2025-08-04", "2025-08-08", 9]],
+          "photos": [["SeI3zguIFM4", "César O'neill"]]
+        }
+      ]
+    }
+  ]
+}
