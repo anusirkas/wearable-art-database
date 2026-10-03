@@ -24,20 +24,6 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0c0c0c;
-    --surface: #171717;
-    --ink: #f2f0ec;
-    --ink-2: #c6c4bf;
-    --muted: #8f8d87;
-    --line: #2a2a28;
-    --green: #6fcf9c;
-    --green-soft: #15291f;
-    color-scheme: dark;
-  }
-}
-
 * {
   box-sizing: border-box;
 }

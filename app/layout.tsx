@@ -36,7 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             from Wikimedia Commons, credited on each piece. Studios are demo profiles with Unsplash photography.
           </p>
           <p>
-            Built by <a href="https://portfolio-anu-sirkas-projects.vercel.app">Anu Sirkas</a> · Next.js + PostgreSQL
+            Built by <a href="https://portfolio-anu-sirkas-projects.vercel.app">Anu Sirkas</a> · Next.js + PostgreSQL (Neon)
           </p>
         </footer>
       </body>
