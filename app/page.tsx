@@ -1,94 +1,120 @@
-'use client'
+import Form from "next/form";
+import Link from "next/link";
+import ArtworkGrid from "@/components/ArtworkGrid";
+import AutoSubmitSelect, { AutoSubmitCheckbox } from "@/components/AutoSubmit";
+import { CATEGORIES, getFacets, getStats, searchArtworks, type SearchFilters } from "@/lib/queries";
 
-import { useEffect, useState } from "react"
-import { supabase } from "@/lib/supabase"
-import Link from "next/link"
+function one(v: string | string[] | undefined) {
+  return (Array.isArray(v) ? v[0] : v)?.trim() || undefined;
+}
 
-export default function Home() {
-  const [artworks, setArtworks] = useState<any[]>([])
-  const [loading, setLoading] = useState(true)
+export default async function ArchivePage({ searchParams }: PageProps<"/">) {
+  const params = await searchParams;
+  const filters: SearchFilters = {
+    q: one(params.q),
+    category: one(params.category),
+    type: one(params.type),
+    material: one(params.material),
+    technique: one(params.technique),
+    sustainable: one(params.sustainable) === "1",
+  };
+  const [artworks, facets, stats] = await Promise.all([searchArtworks(filters), getFacets(), getStats()]);
+  const filtered = Object.values(filters).some(Boolean);
 
-  useEffect(() => {
-    async function fetchArtworks() {
-      const { data, error } = await supabase
-        .from("teos")
-        .select(`
-          id,
-          pealkiri,
-          aasta,
-          kunstnik:kunstnik_id (nimi),
-          meedia (faili_url)
-        `)
-
-      if (error) {
-        console.error(error)
-      } else {
-        setArtworks(data || [])
-      }
-
-      setLoading(false)
+  const withCategory = (category?: string) => {
+    const next = new URLSearchParams();
+    for (const [k, v] of Object.entries({ ...filters, category, type: undefined })) {
+      if (v) next.set(k, v === true ? "1" : String(v));
     }
-
-    fetchArtworks()
-  }, [])
+    const s = next.toString();
+    return s ? `/?${s}` : "/";
+  };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-10">
-
-      {/* HEADER */}
-      <div className="max-w-5xl mx-auto mb-10">
-        <h1 className="text-4xl font-bold text-gray-900">
-          Wearable Art Archive
+    <>
+      <section className="intro">
+        <h1>
+          Wearable art, <br />
+          documented.
         </h1>
-        <p className="text-gray-600 mt-2">
-          Digital collection of wearable art.
+        <p>
+          {stats.artworks} pieces by {stats.artists} makers: who made them, from what, how, and how long it took.
+          Search across titles, makers, materials and techniques.
         </p>
-      </div>
+      </section>
 
-      {/* LOADING */}
-      {loading && <p className="text-center">Loading...</p>}
+      <Form action="/" className="search" role="search">
+        <div className="search-row">
+          <label htmlFor="q" className="sr-only">
+            Search the archive
+          </label>
+          <input
+            id="q"
+            name="q"
+            type="search"
+            defaultValue={filters.q}
+            placeholder="Try “silk evening dress”, “brooch”, “Worth” or “cashmere”"
+            autoComplete="off"
+          />
+          <button type="submit">Search</button>
+        </div>
 
-      {/* GRID */}
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filters.category && <input type="hidden" name="category" value={filters.category} />}
 
-        {artworks.map((art) => (
-          <Link key={art.id} href={`/teos/${art.id}`}>
-            
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition cursor-pointer">
+        <div className="filters">
+          <AutoSubmitSelect
+            name="type"
+            label="Type"
+            value={filters.type ?? ""}
+            options={facets.types
+              .filter((t) => !filters.category || t.category === filters.category)
+              .map((t) => ({ value: t.name, label: `${t.name} (${t.count})` }))}
+          />
+          <AutoSubmitSelect
+            name="material"
+            label="Material"
+            value={filters.material ?? ""}
+            options={facets.materials.map((m) => ({ value: m.name, label: `${m.name} (${m.count})` }))}
+          />
+          <AutoSubmitSelect
+            name="technique"
+            label="Technique"
+            value={filters.technique ?? ""}
+            options={facets.techniques.map((t) => ({ value: t.name, label: `${t.name} (${t.count})` }))}
+          />
+          <AutoSubmitCheckbox name="sustainable" label="Sustainable materials" checked={!!filters.sustainable} />
+        </div>
+      </Form>
 
-              {/* IMAGE */}
-              {art.meedia?.[0]?.faili_url && (
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={art.meedia[0].faili_url}
-                    alt={art.pealkiri}
-                    className="w-full h-full object-cover hover:scale-105 transition duration-300"
-                  />
-                </div>
-              )}
-
-              {/* CONTENT */}
-              <div className="p-4">
-                <h2 className="text-xl font-semibold">
-                  {art.pealkiri}
-                </h2>
-
-                <p className="text-gray-600">
-                  {art.kunstnik?.nimi}
-                </p>
-
-                <p className="text-sm text-gray-500">
-                  {art.aasta}
-                </p>
-              </div>
-
-            </div>
-
+      <nav className="categories" aria-label="Categories">
+        <Link href={withCategory(undefined)} aria-current={!filters.category ? "page" : undefined}>
+          Everything
+        </Link>
+        {CATEGORIES.map((c) => (
+          <Link key={c.value} href={withCategory(c.value)} aria-current={filters.category === c.value ? "page" : undefined}>
+            {c.label}
           </Link>
         ))}
+      </nav>
 
-      </div>
+      <p className="result-count" aria-live="polite">
+        {artworks.length === 1 ? "1 piece" : `${artworks.length} pieces`}
+        {filters.q ? ` for “${filters.q}”` : ""}
+        {filtered && (
+          <>
+            {" · "}
+            <Link href="/">Clear all</Link>
+          </>
+        )}
+      </p>
 
-    </main>
-  )
+      {artworks.length > 0 ? (
+        <ArtworkGrid artworks={artworks} priority={4} />
+      ) : (
+        <p className="empty">
+          Nothing matches yet. Try a material (“silk”), a maker, or a broader word like “dress”.
+        </p>
+      )}
+    </>
+  );
 }
